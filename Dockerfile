@@ -11,6 +11,10 @@ RUN gzip -d /$RELEASE.tar.gz && \
     rm /$RELEASE.tar* && \
     mv /$RELEASE /syncthing
 
+RUN useradd --create-home syncthing
+
 EXPOSE 8080 22000 21025/udp
+
+USER syncthing
 
 CMD ["/syncthing/syncthing"]
