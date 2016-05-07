@@ -1,7 +1,7 @@
 #!/bin/bash
 
 CONFIGURATION="$HOME/.config/syncthing"
-SYNC_FOLDER="$HOME/Sync"
+SYNC_FOLDER="/media/sata3000/syncthing"
 
 if [ -e $CONFIGURATION ]
 then
@@ -15,4 +15,4 @@ docker run \
     -p 8080:8080 -p 22000:22000 -p 21025:21025/udp \
     -v $CONFIGURATION:/home/syncthing/.config/syncthing \
     -v $SYNC_FOLDER:/home/syncthing/Sync \
-    taeradan/syncthing
+    taeradan/syncthing:0.12.3
